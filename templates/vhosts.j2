@@ -22,12 +22,12 @@ server {
     error_log {{ vhost.error_log }} error;
 {% endif %}
 
-{% if vhost.return is defined %}
-    return {{ vhost.return }};
-{% endif %}
-
 {% if vhost.extra_parameters is defined %}
     {{ vhost.extra_parameters|indent(4) }}
+{% endif %}
+
+{% if vhost.return is defined %}
+    return {{ vhost.return }};
 {% endif %}
 }
 {% endfor %}
